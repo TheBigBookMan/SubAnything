@@ -5,3 +5,5 @@
 # ? WIll need to create a new gmail to send the automatic emails ebcause it will be a lot
 # ? Creates a pdf with the info
 # ? Send weekly pdfs with the info
+
+# MAKE THIS USING OOP so can prctice and be OOP for each person data
