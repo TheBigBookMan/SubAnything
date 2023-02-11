@@ -5,3 +5,5 @@
 # ? WIll need to create a new gmail to send the automatic emails ebcause it will be a lot
 # ? Creates a pdf with the info
 # ? Send weekly pdfs with the info
+
+# ? Python course section 28 has the info on how to set it up as a 24 hour running program
