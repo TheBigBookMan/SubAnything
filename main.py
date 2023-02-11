@@ -17,13 +17,13 @@ from Person import Person
 
 
 # ? Andy
-andy = Person("Andy Kyriakou", 'andykyriakou95@gmail.com', [{'house': ['Plympton']}, {'news': ['wellbeing', 'wellness']}])
-andy.create_email()
+andy = Person("Andy Kyriakou", 'andykyriakou95@gmail.com', [{'house': ['Plympton']}, {'news': ['global wellbeing', 'global wellness']}])
+# andy.create_email()
 # andy.check_api()
 
 # ? Mum
-denise = Person("Denise Darling", "d.darling@adam.com.au", [{'house': ['Torrens Park', 'Brompton', 'Port Elliot']}, {'news': ['australian house']}])
-
+denise = Person("Denise Darling", "d.darling@adam.com.au", [{'house': ['Torrens Park', 'Brompton', 'Port Elliot']}, {'news': ['Australian HOUSE', 'us election']}])
+denise.create_email()
 
 
 # * create a function herer that can just loop through and use that new Person.create_email() dynamically
