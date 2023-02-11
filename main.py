@@ -7,3 +7,19 @@
 # ? Send weekly pdfs with the info
 
 # ? Python course section 28 has the info on how to set it up as a 24 hour running program
+
+# ? Maybe have a CLI for me for easier input when creating newer people
+
+
+# * This main page will go through calling the person functions to start the process of it all
+
+from Person import Person
+
+
+# ? Andy
+andy = Person("Andy Kyriakou", 'andykyriakou95@gmail.com', [{'house': ['Plympton']}, {'business': ['wellbeing', 'wellness']}])
+andy.create_email()
+# andy.check_api()
+
+# ? Mum
+denise = Person("Denise Darling", "d.darling@adam.com.au", {'house': ['Torrens Park', 'Brompton', 'Port Elliot']})
