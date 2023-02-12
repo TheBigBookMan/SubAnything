@@ -1,6 +1,11 @@
 import os
 import smtplib, ssl
 
+
+def create_email_content(message):
+    print("CREATING EMAIL")
+    print(message)
+
 def send_email(message, address):
     host = 'smtp.gmail.com'
     port = 465

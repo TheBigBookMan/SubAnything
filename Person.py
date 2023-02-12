@@ -1,4 +1,5 @@
 import APIs
+import email_functions
 
 class Person:
     def __init__(self, name, address, content):
@@ -8,11 +9,12 @@ class Person:
 
     # ? Need a function here for calling the API
     def check_api(self):
-        APIs.check_api_calls(self.content)
-        
+        api_content = APIs.check_api_calls(self.content)
+        return api_content
 
     # ? Need a function for creating the email message
     def create_email(self):
-        print(self.check_api())
+        content = self.check_api()
+        email_functions.create_email_content(content)
 
 

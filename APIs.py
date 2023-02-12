@@ -7,15 +7,22 @@ one_week_ago = today - timedelta(days=7)
 date = one_week_ago.strftime("%Y-%m-%d")
 
 def check_api_calls(content):
-    # print(content)
+    list_content = []
+
     for item in content:
-      for key, value in item.items():
-          if key == 'house':
-              house_api(value)
-          elif key == 'news':
-              news_api(value)
-          elif key == 'stock':
-              stock_api(value)
+        for key, value in item.items():
+            if key == 'house':
+                house_content = house_api(value)
+                list_content.append({"house": house_content})
+            elif key == 'news':
+                news_content = news_api(value)
+                list_content.append({"news": news_content})
+            elif key == 'stock':
+                stock_content = stock_api(value)
+                list_content.append({"stock": stock_content})
+        
+    print("LIST")
+    print(list_content)
 
 
 def house_api(queries):
@@ -28,18 +35,30 @@ def house_api(queries):
 
 
 def news_api(queries):
+    news_list = []
+
     def query_by_country(country, query):
-        response = requests.get(f"https://newsapi.org/v2/top-headlines?country={country}&q={query}&apiKey={API_KEY}&language=en")
+        response = requests.get(f'https://newsapi.org/v2/top-headlines?country={country}&q={query}&apiKey={API_KEY}&language=en&from={date}')
         content = response.json()
+        articles = content['articles']
+        body_articles = []
+        for article in articles: 
+            body = {
+                "title": article['title'],
+                "author": article['author'],
+                "source": article['source']['name'],
+                "description": article['description'],
+                "url": article['url'],
+                "publishedDate": article['publishedAt'],
+                "content": article['content']
+            }
+            body_articles.append(body)
         # TODO sort the content
         # TODO add the content to message
-        print(content)
+        news_list.append({query: body_articles})
 
-        
-    # TODO make the timeframe from datetime--- from=2023-01-08   this is format of it--- make these automatically one week apart with the to being current day and the from being current day minus 7-- dont need to put n the to beause it will auto be going up to that
     for query in queries:
         query_split = [query.lower() for query in query.split()]
-        print(query_split)
         if query_split[0] == 'australian':
             country = 'au'
             query_by_country(country, query_split[1])
@@ -47,15 +66,27 @@ def news_api(queries):
             country = 'us'
             query_by_country(country, query_split[1])
         elif query_split[0] == 'global':
-            response = requests.get(f"https://newsapi.org/v2/everything?q=election&from={date}&sortBy=publishedAt&apiKey={API_KEY}&language=en&pageSize=20")
+            response = requests.get(f'https://newsapi.org/v2/everything?q="{query_split[1]} startup"&from={date}&sortBy=publishedAt&apiKey={API_KEY}&language=en&pageSize=20')
             content = response.json()
+            articles = content['articles']
+            body_articles = []
+            for article in articles: 
+                body = {
+                    "title": article['title'],
+                    "author": article['author'],
+                    "source": article['source']['name'],
+                    "description": article['description'],
+                    "url": article['url'],
+                    "publishedDate": article['publishedAt'],
+                    "content": article['content']
+                }
+                body_articles.append(body)
             # TODO sort the content
             # TODO add the content to the message 
-            print(content)
-            print("global")
+            news_list.append({query: body_articles})
 
-        
-    
+    return news_list
+
 
 
 def stock_api(queries):

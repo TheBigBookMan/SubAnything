@@ -22,7 +22,7 @@ andy = Person("Andy Kyriakou", 'andykyriakou95@gmail.com', [{'house': ['Plympton
 # andy.check_api()
 
 # ? Mum
-denise = Person("Denise Darling", "d.darling@adam.com.au", [{'house': ['Torrens Park', 'Brompton', 'Port Elliot']}, {'news': ['Australian HOUSE', 'us election']}])
+denise = Person("Denise Darling", "d.darling@adam.com.au", [{'house': ['Torrens Park', 'Brompton', 'Port Elliot']}, {'news': ['Australian HOUSE', 'us ukraine']}])
 denise.create_email()
 
 
