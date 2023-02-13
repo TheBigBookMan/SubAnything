@@ -6,7 +6,15 @@ def create_email_content(message):
     print("CREATING EMAIL")
     print(message)
 
+    # TODO send over to create pdf functions
+
+    # TODO send back to the send_email OOP function-- which will then call the send_email function
+
+
 def send_email(message, address):
+    # print("SENDDD")
+    # print(message)
+    # print(address)
     host = 'smtp.gmail.com'
     port = 465
 

@@ -17,4 +17,9 @@ class Person:
         content = self.check_api()
         email_functions.create_email_content(content)
 
+    def send_email(self):
+        # message = self.create_email()
+        # address = self.address
+        email_functions.send_email(self.create_email(), self.address)
+
 

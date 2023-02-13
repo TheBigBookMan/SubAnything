@@ -1,5 +1,6 @@
 import requests
 from datetime import datetime, timedelta
+from bs4 import BeautifulSoup
 
 API_KEY = 'a931d65d2e564a9d9959d549fc4f3d9e'
 today = datetime.today()
@@ -21,19 +22,38 @@ def check_api_calls(content):
                 stock_content = stock_api(value)
                 list_content.append({"stock": stock_content})
         
-    print("LIST")
-    print(list_content)
+    return list_content
 
+
+# ? will need to web scrape domain website
 
 def house_api(queries):
-    print(queries)
+    # print(queries)
     print("house")
-    # ? createa --- https://developer.domain.com.au/docs/latest/getting-started/creating-first-project
-    # ? Houses prices- https://developer.domain.com.au/docs/latest/apis/pkg_properties_locations/references/suburbperformance_get_bynamedsuburb_withoutpostcode
+    # query_suburbs = ""
+    # for query in queries:
+    #     single_query = ""
+    #     split_query = query['suburb'].split(' ')
+    #     print(split_query)
+    #     for word in split_query:
+    #         single_query = single_query + f"+{word.lower()}"
+
+    #     if query == queries[-1]:
+    #         single_query = single_query + f",+{query['state']}+{query['postcode']}"
+    #     else:
+    #         single_query = single_query + f",+{query['state']}+{query['postcode']}%3b"
+        
+    #     query_suburbs = query_suburbs + single_query
+    
+    # url = f'https://www.realestate.com.au/sold/property-house-in-{query_suburbs}/list-1?maxSoldAge=1-month&activeSort=solddate&source=refinement'
+
+    # source_code = requests.get(url).text
+    # print(source_code)
 
 
 
 
+#? https://newsapi.org/docs/endpoints/top-headlines
 def news_api(queries):
     news_list = []
 
@@ -53,8 +73,6 @@ def news_api(queries):
                 "content": article['content']
             }
             body_articles.append(body)
-        # TODO sort the content
-        # TODO add the content to message
         news_list.append({query: body_articles})
 
     for query in queries:
@@ -81,8 +99,6 @@ def news_api(queries):
                     "content": article['content']
                 }
                 body_articles.append(body)
-            # TODO sort the content
-            # TODO add the content to the message 
             news_list.append({query: body_articles})
 
     return news_list

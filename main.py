@@ -15,15 +15,21 @@
 
 from Person import Person
 
+# * For news have first index of the country, second have keyword (australia economy)
 
 # ? Andy
-andy = Person("Andy Kyriakou", 'andykyriakou95@gmail.com', [{'house': ['Plympton']}, {'news': ['global wellbeing', 'global wellness']}])
+andy = Person("Andy Kyriakou", 'andykyriakou95@gmail.com', [{'house': [{"suburb": "Plympton", "postcode": '5038', 'state': 'sa'}]}, {'news': ['global wellbeing', 'global wellness']}])
+
 # andy.create_email()
-# andy.check_api()
+# * below is proper call
+# andy.send_email()
 
 # ? Mum
-denise = Person("Denise Darling", "d.darling@adam.com.au", [{'house': ['Torrens Park', 'Brompton', 'Port Elliot']}, {'news': ['Australian HOUSE', 'us ukraine']}])
+denise = Person("Denise Darling", "d.darling@adam.com.au", [{'house': [{"suburb": "Torrens Park", "postcode": "5062", "state": "sa"}, {"suburb": "Brompton", "postcode": "5007", "state": "sa"}, {"suburb": "Port elliot", "postcode": "5212", "state": "sa"}]}, {'news': ['Australian HOUSE', 'us ukraine']}])
+
 denise.create_email()
+# * below is proper call
+# denise.send_email()
 
 
 # * create a function herer that can just loop through and use that new Person.create_email() dynamically
