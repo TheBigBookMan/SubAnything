@@ -1,11 +1,13 @@
 import os
 import smtplib, ssl
+import pdf_creator
 
 
 def create_email_content(message):
     print("CREATING EMAIL")
-    print(message)
+    
 
+    pdf_creator.create_pdf(message)
     # TODO send over to create pdf functions
 
     # TODO send back to the send_email OOP function-- which will then call the send_email function
