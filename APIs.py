@@ -8,19 +8,19 @@ one_week_ago = today - timedelta(days=7)
 date = one_week_ago.strftime("%Y-%m-%d")
 
 def check_api_calls(content):
-    list_content = []
+    list_content = {}
 
     for item in content:
         for key, value in item.items():
             if key == 'house':
                 house_content = house_api(value)
-                list_content.append({"house": house_content})
+                list_content["house"] =  house_content
             elif key == 'news':
                 news_content = news_api(value)
-                list_content.append({"news": news_content})
+                list_content["news"] = news_content
             elif key == 'stock':
                 stock_content = stock_api(value)
-                list_content.append({"stock": stock_content})
+                list_content["stock"] = stock_content
         
     return list_content
 

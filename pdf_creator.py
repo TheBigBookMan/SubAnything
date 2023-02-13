@@ -7,4 +7,5 @@ def create_pdf(data):
     print("PDFF")
     print(data)
 
-    news_category = 
+    news_category = data['news']
+    print(news_category)
