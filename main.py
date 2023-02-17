@@ -1,17 +1,8 @@
 
-# ? App that webscrapes date/uses API data 
-# ? can be stock prices, business news, housing info/markets
-# ? Will have peoples emails and then have a select criteria of what they want to be sent to them
 # ? WIll need to create a new gmail to send the automatic emails ebcause it will be a lot
-# ? Creates a pdf with the info
 # ? Send weekly pdfs with the info
 
 # ? Python course section 28 has the info on how to set it up as a 24 hour running program
-
-# ? Maybe have a CLI for me for easier input when creating newer people
-
-
-# * This main page will go through calling the person functions to start the process of it all
 
 from Person import Person
 
@@ -20,7 +11,7 @@ from Person import Person
 # ? Andy
 andy = Person("Andy Kyriakou", 'andykyriakou95@gmail.com', [{'house': [{"suburb": "Plympton", "postcode": '5038', 'state': 'sa'}]}, {'news': ['global wellbeing', 'global wellness']}])
 
-andy.create_email()
+# andy.create_email()
 # * below is proper call
 # andy.send_email()
 
@@ -29,7 +20,7 @@ andy.create_email()
 # ? Mum
 denise = Person("Denise Darling", "d.darling@adam.com.au", [{'house': [{"suburb": "Torrens Park", "postcode": "5062", "state": "sa"}, {"suburb": "Brompton", "postcode": "5007", "state": "sa"}, {"suburb": "Port elliot", "postcode": "5212", "state": "sa"}]}, {'news': ['Australian HOUSE', 'us ukraine', 'global archaeology']}])
 
-# denise.create_email()
+denise.create_email()
 # * below is proper call
 # denise.send_email()
 

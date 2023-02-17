@@ -21,6 +21,9 @@ def check_api_calls(content):
             elif key == 'stock':
                 stock_content = stock_api(value)
                 list_content["stock"] = stock_content
+            elif key == 'crypto':
+                crypto_content = crypto_api(value)
+                list_content["crypto"] = crypto_content
         
     return list_content
 
@@ -108,3 +111,6 @@ def news_api(queries):
 def stock_api(queries):
     print(queries)
 # ? Stock prices- https://au.finance.yahoo.com/
+
+def crypto_api(queries):
+    print(queries)
