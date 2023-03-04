@@ -2,6 +2,8 @@ import os
 import smtplib, ssl
 import pdf_creator
 
+# TODO -- use the package email creator (from email.message import EmailMessage)--- this allows for attaching of the file
+# look at class 320 of python course for info on how to do it properly
 
 def create_email_content(message):
     print("CREATING EMAIL")

@@ -88,7 +88,11 @@ def news_api(queries):
             query_by_country(country, query_split[1])
         elif query_split[0] == 'global':
             response = requests.get(f'https://newsapi.org/v2/everything?q="{query_split[1]} startup"&from={date}&sortBy=publishedAt&apiKey={API_KEY}&language=en&pageSize=20')
+            # response.encoding = 'ISO-8859-1'
+            print(response.encoding)
             content = response.json()
+            print(content)
+            # content = response.json()
             articles = content['articles']
             body_articles = []
             for article in articles: 
